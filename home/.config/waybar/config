@@ -1,0 +1,161 @@
+// -*- mode: json -*-
+[
+{
+	"layer": "bottom",
+	"position": "top",
+	"margin-top": 5,
+	"margin-right": 5,
+	"margin-left": 5,
+	"modules-left": [
+		"sway/workspaces",
+		"custom/separator",
+		"idle_inhibitor",
+		"custom/separator",
+		"sway/mode"
+	],
+	"modules-center": [
+		"cpu",
+		"custom/separator",
+		"memory",
+		"custom/separator",
+		"disk",
+		"custom/separator",
+		"clock"
+	],
+	"modules-right": [
+		"custom/weather",
+		"custom/separator",
+		"pulseaudio",
+		"custom/separator",
+		"mpd",
+		"custom/separator",
+		"custom/reboot",
+		"custom/separator",
+		"custom/shutdown"
+	],
+	"sway/workspaces": {
+		"disable-scroll": true,
+ 		"format": "{name} {icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+	"sway/mode": {
+		"format": "{}"
+	},
+	"clock": {
+		"format": " {:%a %d %b %H:%M}",
+		"tooltip": true
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}% ",
+		"format-bluetooth": "{icon} {volume}% ",
+		"format-bluetooth-muted": " {icon} ",
+		"format-muted": " ",
+		"format-source": " {volume}%",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"on-click": "pavucontrol"
+	},
+	"mpd": {
+		"format": "{stateIcon} {consumeIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+		"format-disconnected": "Disconnected",
+		"format-stopped": "{consumeIcon}{repeatIcon}{singleIcon} stopped",
+		"interval": 2,
+		"consume-icons": {
+			"on": " "
+		},
+		"random-icons": {
+			"off": "<span color='#f53c3c'></span> ",
+			"on": " "
+		},
+		"repeat-icons": {
+			"on": " "
+		},
+		"single-icons": {
+			"on": "1 "
+		},
+		"state-icons": {
+			"paused": "",
+			"playing": ""
+		},
+		"tooltip-format": "MPD (connected)",
+		"tooltip-format-disconnected": "MPD (disconnected)"
+	},
+	"memory": {
+		"states": {
+			"good": 0,
+			"warning": 60,
+			"critical": 80
+		},
+		"interval": 5,
+		"format": " {}%"
+	},
+	"cpu": {
+		"states": {
+			"good": 0,
+			"warning": 70,
+			"critical": 95
+		},
+		"interval": 5,
+		"format": " {usage:2}%"
+	},
+	"disk": {
+		"states": {
+			"good": 0,
+			"warning": 70,
+			"critical": 95
+		},
+		"interval": 5,
+		"format": "  {percentage_used:2}%",
+		"path": "/"
+	},
+	"custom/separator": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/shutdown": {
+		"format": "",
+		"on-click": "~/.config/waybar/modules/shutdown.sh",
+		"tooltip": false
+	},
+	"custom/reboot": {
+		"format": "",
+		"on-click": "~/.config/waybar/modules/reboot.sh",
+		"tooltip": false
+	},
+	"custom/weather": {
+		"format": "{}",
+		"exec": "~/.config/waybar/modules/weather.sh",
+		"interval": 3600
+	},
+	"custom/spotify": {
+		"interval": 1,
+		"return-type": "json",
+		"exec": "~/.config/waybar/modules/spotify.sh",
+		"exec-if": "pgrep spotify",
+		"escape": true
+	}
+}
+]

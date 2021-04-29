@@ -1,0 +1,16 @@
+directory: ~/music
+
+library: ~/.config/beets/library.db
+
+import:
+  languages: en jp
+
+  copy: yes
+  write: yes
+  delete: no
+
+  log: /var/log/beets/import/beetslog.txt
+
+ui:
+  color: yes
+

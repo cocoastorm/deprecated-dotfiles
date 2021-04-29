@@ -1,0 +1,7 @@
+# ctrl-a to amend to last commit, with files that are staged
+bind status <Ctrl-A> !git commit --amend
+
+# press shift+p to push
+# requires `git config --global push.default current`
+bind status P !git push -u
+
