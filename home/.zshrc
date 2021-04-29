@@ -123,4 +123,9 @@ export NVM_DIR="$HOME/.nvm"
 # Keychain
 eval $(keychain --eval --quiet id_ed25519 id_rsa)
 
+# TheFuck
 eval $(thefuck --alias)
+
+# Homeshick Refresh
+homeshick --quiet refresh
+
