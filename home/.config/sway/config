@@ -73,6 +73,10 @@ exec swayidle -w \
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+#input "19266:24679:KBDFans_KBD67v2" {
+#  xkb_layout us
+#}
+
 
 ### Key bindings
 #
@@ -238,6 +242,9 @@ bar {
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
+    # Xwayland Compatibility
+    xrdb -load ~/.Xresources
+
     # GTK
     gsettings set $gnome-schema gtk-theme 'Nordic'
     gsettings set $gnome-schema icon-theme 'Papirus-Dark'
@@ -260,12 +267,14 @@ exec_always {
 exec /usr/bin/dunst
 exec /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec blueman-applet & > /dev/null 2>&1
 exec xsettingsd & > /dev/null 2>&1
 
 ### Window Config
 for_window [app_id="sublime_text" title="Select Folder"] floating enable
 for_window [app_id="sublime_text" title="Changelog - Sublime Text"] floating enable
 for_window [app_id="sublime_merge" title="Changelog - Sublime Merge"] floating enable
+for_window [app_id="thunar" title="File Operation Progress"] floating enable
 for_window [app_id="ssh-askpass-sublime"] floating enable
 for_window [app_id=pavucontrol] floating enable
 for_window [app_id=imv] floating enable
