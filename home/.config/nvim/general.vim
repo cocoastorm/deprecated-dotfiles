@@ -1,11 +1,4 @@
-" Syntax Highlighting
-syntax on
-set hlsearch
-
-" filetype detection
-filetype plugin indent on
-
-" Middle-click passte with mouse
+" Middle-click paste with mouse
 set mouse=v
 
 " Number of columns occupied by tab character

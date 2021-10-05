@@ -20,3 +20,5 @@ Plug 'neovim/nvim-lspconfig'
 
 " Initialize plugin system
 call plug#end()
+
+source $HOME/.config/nvim/plugins-cfg/nvimtree/init.lua
